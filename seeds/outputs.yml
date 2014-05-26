@@ -1,0 +1,6 @@
+outputs:
+ - sentance
+ - paragraph
+ - sketch
+ - story
+ - poem
