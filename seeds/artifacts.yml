@@ -1,0 +1,37 @@
+physical:
+    - A contact form on a web page.
+    - A piece of networking equipment
+    - A server
+    - A virtual server
+    - A touchpad
+    - A keyboard
+    - A screen
+    - A touch screen
+    - A network cable
+    - A smartphone
+    - A broken smartphone
+    - A memory module
+    - A hard disk
+    - A corrupted hard disk
+    - An SSD drive
+    - An optical drive
+textual: 
+    - A file of code in a scripting language
+    - A file of code in a high level language
+    - A file of code in 'C'
+    - A file of assembler code
+    - A file of code in a functional language
+    - A build script
+    - A file of object code
+    - A method definition
+    - A comment on a method definition
+    - An inline comment
+    - A conditional statement
+    - Code that reads a file
+    - A shell script
+    - A terminal session
+    - A logfile
+programatic:
+    - A compiler
+    - A text editor
+    - An IDE
