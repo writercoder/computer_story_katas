@@ -1,37 +1,37 @@
 physical:
-    - A contact form on a web page.
-    - A piece of networking equipment
-    - A server
-    - A virtual server
-    - A touchpad
-    - A keyboard
-    - A screen
-    - A touch screen
-    - A network cable
-    - A smartphone
-    - A broken smartphone
-    - A memory module
-    - A hard disk
-    - A corrupted hard disk
-    - An SSD drive
-    - An optical drive
+    - a contact form on a web page.
+    - a piece of networking equipment
+    - a server
+    - a virtual server
+    - a touchpad
+    - a keyboard
+    - a screen
+    - a touch screen
+    - a network cable
+    - a smartphone
+    - a broken smartphone
+    - a memory module
+    - a hard disk
+    - a corrupted hard disk
+    - an SSD drive
+    - an optical drive
 textual: 
-    - A file of code in a scripting language
-    - A file of code in a high level language
-    - A file of code in 'C'
-    - A file of assembler code
-    - A file of code in a functional language
-    - A build script
-    - A file of object code
-    - A method definition
-    - A comment on a method definition
-    - An inline comment
-    - A conditional statement
-    - Code that reads a file
-    - A shell script
-    - A terminal session
-    - A logfile
+    - a file of code in a scripting language
+    - a file of code in a high level language
+    - a file of code in 'C'
+    - a file of assembler code
+    - a file of code in a functional language
+    - a build script
+    - a file of object code
+    - a method definition
+    - a comment on a method definition
+    - an inline comment
+    - a conditional statement
+    - code that reads a file
+    - a shell script
+    - a terminal session
+    - a logfile
 programatic:
-    - A compiler
-    - A text editor
-    - An IDE
+    - a compiler
+    - a text editor
+    - an IDE
