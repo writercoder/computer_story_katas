@@ -16,6 +16,7 @@
     "url": "https://github.com/writercoder/computer_stories/issues"
   },
   "dependencies": {
-    "js-yaml": "~3.0.2"
+    "js-yaml": "~3.0.2",
+    "yargs": "~1.2.2"
   }
 }
