@@ -8,3 +8,7 @@ prompts for writing stories.
 
 This repository will create code for outputting markdown formatted
 kata prompts.
+
+## Specifying the form of output
+
+    coffee kata.coffee -f "a poem"
