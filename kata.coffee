@@ -18,6 +18,7 @@ loadYml = (what) ->
 artifacts = loadYml 'artifacts'
 forms = loadYml 'forms'
 nouns = loadYml 'nouns'
+verbs = loadYml 'verbs'
 
 if argv.form
   chosenForm = argv.form
@@ -26,7 +27,8 @@ else
 chosenArtifactType = randomKeyOf artifacts
 chosenArtifact = randomMemberOf artifacts[chosenArtifactType]
 chosenNoun = randomMemberOf nouns
+chosenVerb = randomMemberOf verbs
 
-kata = "Write #{chosenForm} about #{chosenNoun} and #{chosenArtifact}"
+kata = "Write #{chosenForm} about #{chosenNoun} and #{chosenArtifact} using the verb '#{chosenVerb}'"
 
 console.log kata
