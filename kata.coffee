@@ -29,6 +29,9 @@ chosenArtifact = randomMemberOf artifacts[chosenArtifactType]
 chosenNoun = randomMemberOf nouns
 chosenVerb = randomMemberOf verbs
 
-kata = "Write #{chosenForm} about #{chosenNoun} and #{chosenArtifact} using the verb '#{chosenVerb}'"
+katas = [
+  -> "Write #{chosenForm} about #{chosenNoun} and #{chosenArtifact}"
+  -> "Write #{chosenForm} about #{chosenNoun} and #{chosenArtifact} using the verb '#{chosenVerb}'"
+]
 
-console.log kata
+console.log  randomMemberOf(katas)()
