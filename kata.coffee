@@ -3,11 +3,18 @@ fs = require 'fs'
 yaml = require 'js-yaml'
 argv = require('yargs')
           .alias('f', 'form')
+          .alias('k', 'kata')
           .argv
 
 
-randomMemberOf = (a) ->
-  a[Math.floor(Math.random() * a.length)] 
+randomMemberOf = (container) ->
+  if container.length
+    # container is array like
+    container[Math.floor(Math.random() * container.length)] 
+  else
+    # container is an object
+    key = randomKeyOf container
+    container[key]
 
 randomKeyOf = (o) ->
   randomMemberOf(k for k of o)
@@ -29,9 +36,14 @@ chosenArtifact = randomMemberOf artifacts[chosenArtifactType]
 chosenNoun = randomMemberOf nouns
 chosenVerb = randomMemberOf verbs
 
-katas = [
-  -> "Write #{chosenForm} about #{chosenNoun} and #{chosenArtifact}"
-  -> "Write #{chosenForm} about #{chosenNoun} and #{chosenArtifact} using the verb '#{chosenVerb}'"
-]
+katas = {
+  a: -> "Write #{chosenForm} about #{chosenNoun} and #{chosenArtifact}"
+  b: -> "Write #{chosenForm} about #{chosenNoun} and #{chosenArtifact} using the verb '#{chosenVerb}'"
+}
 
-console.log  randomMemberOf(katas)()
+if argv.kata
+  kata = katas[argv.kata]
+else
+  kata = randomMemberOf(katas)
+
+console.log kata()
