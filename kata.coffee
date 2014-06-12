@@ -22,23 +22,27 @@ randomKeyOf = (o) ->
 loadYml = (what) -> 
   yaml.load(fs.readFileSync("#{__dirname}/seeds/#{what}.yml", 'utf8'))
 
+
+randomItemFrom = (collection) ->
+  randomMemberOf(loadYml collection)
+
+randomForm = -> randomItemFrom 'forms'
+
 artifacts = loadYml 'artifacts'
-forms = loadYml 'forms'
 nouns = loadYml 'nouns'
 verbs = loadYml 'verbs'
 
-if argv.form
-  chosenForm = argv.form
-else
-  chosenForm = randomMemberOf(forms)
+chosenForm = ->
+  argv.form || randomForm()
+
 chosenArtifactType = randomKeyOf artifacts
 chosenArtifact = randomMemberOf artifacts[chosenArtifactType]
 chosenNoun = randomMemberOf nouns
 chosenVerb = randomMemberOf verbs
 
 katas = {
-  a: -> "Write #{chosenForm} about #{chosenNoun} and #{chosenArtifact}"
-  b: -> "Write #{chosenForm} about #{chosenNoun} and #{chosenArtifact} using the verb '#{chosenVerb}'"
+  a: -> "Write #{chosenForm()} about #{chosenNoun} and #{chosenArtifact}"
+  b: -> "Write #{chosenForm()} using the verb '#{chosenVerb}' about #{chosenNoun} and #{chosenArtifact} "
 }
 
 if argv.kata
