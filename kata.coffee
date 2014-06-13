@@ -16,38 +16,33 @@ randomMemberOf = (container) ->
     key = randomKeyOf container
     container[key]
 
-randomKeyOf = (o) ->
-  randomMemberOf(k for k of o)
-
 loadYml = (what) -> 
   yaml.load(fs.readFileSync("#{__dirname}/seeds/#{what}.yml", 'utf8'))
 
+randomKeyOf = (o) ->
+  randomMemberOf(k for k of o)
 
 randomItemFrom = (collection) ->
   randomMemberOf(loadYml collection)
 
-randomForm = -> randomItemFrom 'forms'
+form = -> argv.form || randomItemFrom 'forms'
+artifact = -> 
+  artifacts = loadYml 'artifacts'
+  chosenArtifactType = randomKeyOf artifacts
+  randomMemberOf artifacts[chosenArtifactType]
+noun = -> randomMemberOf loadYml('nouns')
+verb = -> randomMemberOf loadYml('verbs')
 
-artifacts = loadYml 'artifacts'
-nouns = loadYml 'nouns'
-verbs = loadYml 'verbs'
-
-chosenForm = ->
-  argv.form || randomForm()
-
-chosenArtifactType = randomKeyOf artifacts
-chosenArtifact = randomMemberOf artifacts[chosenArtifactType]
-chosenNoun = randomMemberOf nouns
-chosenVerb = randomMemberOf verbs
 
 katas = {
-  a: -> "Write #{chosenForm()} about #{chosenNoun} and #{chosenArtifact}"
-  b: -> "Write #{chosenForm()} using the verb '#{chosenVerb}' about #{chosenNoun} and #{chosenArtifact} "
+  a: -> "Write #{form()} about #{noun()} and #{artifact()}"
+  b: -> "Write #{form()} using the verb '#{verb()}' about #{noun()} and #{artifact()} "
 }
 
-if argv.kata
-  kata = katas[argv.kata]
-else
-  kata = randomMemberOf(katas)
+kata = ->
+  if argv.kata
+    katas[argv.kata]()
+  else
+    randomMemberOf(katas)()
 
 console.log kata()
